@@ -1,0 +1,36 @@
+<ion-header no-border>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="backToHome()" class="back-button"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+  <!-- <div class="container">
+    <div photoGalleryGroup>
+      <ion-slides pager="true" >
+          <ion-slide>
+            <div class="images-item" [photoGallery]="foto">
+              <img src="{{foto}}" class="img_kamar">
+            </div>
+          </ion-slide>
+          <ion-slide *ngFor="let x of list_foto;let i = index">
+            <div class="images-item" [photoGallery]="ar_foto[i]">
+              <img src="{{base}}vector/upload/{{x.foto}}" class="img_kamar">
+            </div>
+          </ion-slide>
+      </ion-slides>
+    </div>
+  </div> -->
+  <swiper photoGalleryGroup>
+    <div class="images-item" [photoGallery]="foto">
+      <img src="{{foto}}" class="img_full">
+    </div>
+    <div class="images-item" *ngFor="let x of list_foto;let i = index" [photoGallery]="ar_foto[i]">
+      <img src="{{base}}vector/upload/{{x.foto}}" class="img_full">
+    </div>
+  </swiper>
+</ion-content>
+
+          

@@ -1,0 +1,95 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button (click)="myBackButton()"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Register</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    
+  <ion-content>
+    <div class="padding">
+      <div class="form_profile">
+        <ion-row>
+          <ion-col size="12">
+            <label>{{subtitle_nama}}</label>
+            <input type="text" class="txt_profile" [(ngModel)]="nama">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <label>{{subtitle_hp}}</label>
+            <input type="tel" class="txt_profile" [(ngModel)]="hp">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <label>Email</label>
+            <input type="text" class="txt_profile" [(ngModel)]="email">
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row>
+          <ion-col size="12">
+            <label>{{subtitle_tempat}}</label>
+            <input type="text" class="txt_profile" [(ngModel)]="tempat">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <label>{{subtitle_tgl}}</label>
+            <ion-datetime display-format="YYYY-MM-DD" [(ngModel)]="tgl"></ion-datetime>
+          </ion-col>
+        </ion-row> -->
+        <!-- <ion-row>
+          <ion-col size="12">
+            <label>{{subtitle_alamat}}</label>
+            <input type="text" class="txt_profile" [(ngModel)]="alamat">
+          </ion-col>
+        </ion-row> -->
+        <ion-row>
+          <ion-col size="12">
+            <label>{{subtitle_ktp}}</label>
+            <input type="number" class="txt_profile" [(ngModel)]="ktp">
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row>
+          <ion-col size="12">
+            <div class="">
+                <label for="upload-photo" class="label">Foto KTP</label>
+                <label for="upload-photo" class="label">Foto KTP</label>
+                <input type="file" [(ngModel)]="bukti1" ng2FileSelect [uploader]="uploader1" id="upload-photo"/>
+              <label>Foto KTP</label>  
+              <input type="file" [(ngModel)]="bukti1" ng2FileSelect [uploader]="uploader1" />
+              <p *ngIf="isUploaded" class="isuploaded">{{placeholder_file_diupload_1}}</p>
+              <button class="btn" (click)="camera1()" >Camera</button>
+            </div>
+          </ion-col>
+        </ion-row> -->
+        <ion-row>
+          <ion-col size="12">
+            <div class="">
+                <!-- <label for="upload-photo" class="label">Foto</label>
+                <label for="upload-photo" class="label">Foto</label>
+                <input type="file" [(ngModel)]="bukti2" ng2FileSelect [uploader]="uploader2" id="upload-photo"/> -->
+              <label>Foto KTP</label>  
+              <input type="file" [(ngModel)]="bukti2" ng2FileSelect [uploader]="uploader2" />
+              <p *ngIf="isUploaded" class="isuploaded">{{placeholder_file_diupload_2}}</p>
+              <button class="btn" (click)="camera2()" >Camera</button>
+              <!-- <button class="btn" (click)="uploadAllImages()" >Lampirkan Bukti</button> -->
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <button class="btn" (click)="doRegister()" >{{button_register}}</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <button class="btn btn_back" (click)="myBackButton()" >{{SUBTITLE_BACK}}</button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </ion-content>
+  

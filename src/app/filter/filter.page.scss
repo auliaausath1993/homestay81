@@ -1,0 +1,44 @@
+.btn-filter{
+    background: #5BBFF0;
+    color: #fff;
+    text-align: center;
+    height: 35px;
+    width: 100%;
+}
+.padding{
+    padding: 10px;
+}
+.fasilitas{
+    border: 2px solid #dadada;
+    padding: 10px;
+    margin: 8px;
+    float: left;
+    border-radius: 5px;
+}
+label{
+    float: left;
+    color: #00BB47;
+    width: 100%;
+    margin: 10px 0px;
+}
+.myselect{
+    float: left;
+    color: #000;
+}
+.harga{
+    float: left;
+    width: 50%;
+    border-radius: 4px;
+    border: 1px solid #dadada;
+    height: 30px;
+    padding: 4px;
+}
+.picked{
+    border: 2px solid #00BB47;
+}
+.minmax{
+    float: left;
+    width: 48%;
+    border-bottom: 1px solid #dadada;
+    margin: 0px 2px;
+}

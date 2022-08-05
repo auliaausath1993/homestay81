@@ -1,0 +1,12 @@
+<ion-content>
+  <div class="konten">
+    <h4>Konfirmasi Booking</h4>
+    <p>Anda akan melakukan booking durasi <b>{{nominal}}</b> dan <b>{{jumlah_room}} Jumlah kamar</b></p>
+    <div class="nama_kamar">{{kamar}}</div>
+    <div class="buttons">
+      <div class="konfirmasi" (click)="doBooking()" >Konfirmasi</div>
+      <div class="batal" (click)="dismiss()" >Batal</div>
+    </div>
+  </div>
+</ion-content>
+ 

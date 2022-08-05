@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Survey</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+      <!-- SKELETON LOADING -->
+      <div id="skeleton" *ngIf="showSkeleton">
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <!-- END SKELETON LOADING -->
+
+    <div *ngIf="list_survey.length==0" class="no-data">
+      <img src="../../assets/imgs/no-data.png">
+      <label>No Data</label>
+    </div>
+
+    <ion-row *ngIf="list_survey.length>0" >
+      <ion-col size="12">
+        <ion-card class="kamar-card" *ngFor="let x of list_survey" >
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="5" class="center">
+                <div class="center">
+                    <img class="img" src="{{base}}vector/upload/{{x.homestay.foto}}">
+                </div>
+              </ion-col>
+              <ion-col size="7">
+                <div class="nama_kamar">{{x.homestay.nama}}</div>
+                <div class="harga_kamar">{{toRp(x.homestay.harga)}}/Bln </div>
+                <div class="kategori_kamar">{{x.tanggal}} {{x.jam}}</div>
+                <div class="status_kamar">{{x.status}}</div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-content>
+  

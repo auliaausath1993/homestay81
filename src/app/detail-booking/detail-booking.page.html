@@ -1,0 +1,161 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">ax -->
+      <!-- <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="backToHome()" class="back-button"></ion-icon>
+      </ion-buttons> -->
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Detail Booking</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content *ngFor="let x of list">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="kamar-card">
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="5">
+                <img src="{{base}}vector/upload/{{x.homestay.foto}}">
+              </ion-col>
+              <ion-col size="7">
+                <div class="nama_kamar">{{x.homestay.nama}}</div>
+                <div class="harga_kamar">{{toRp(x.harga)}}/{{x.satuan}} </div>
+                <div class="kategori_kamar">Booking Code : <b>{{x.kode_booking}}</b></div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h4 class="center merah">{{subtitle_detail_pembayaran}}</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <div class="padding">
+          <ion-row>
+            <ion-col size="6">{{subtitle_biaya}}</ion-col>
+            <ion-col size="6" class="right">{{toRp(x.harga)}}</ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col size="6">{{subtitle_durasi}}</ion-col>
+            <ion-col size="6" class="right">{{x.durasi}} {{x.satuan}}</ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col size="6">Qty</ion-col>
+            <ion-col size="6" class="right">{{x.qty}}</ion-col>
+          </ion-row>
+          
+          <ion-row class="checkin">
+            <ion-col size="6">Checkin</ion-col>
+            <ion-col size="6" class="right">{{x.start}}</ion-col>
+          </ion-row>
+          
+          <ion-row class="checkin">
+            <ion-col size="6">Checkout</ion-col>
+            <ion-col size="6" class="right">{{x.end}}</ion-col>
+          </ion-row>
+          
+          <ion-row *ngIf="x.diskon && x.diskon!=0" >
+            <ion-col size="6">Discount</ion-col>
+            <ion-col size="6" class="right">{{toRp(x.diskon)}}</ion-col>
+          </ion-row>
+          
+          <div class="garis"></div>
+          
+          <ion-row>
+            <ion-col size="6"><b>Total</b></ion-col>
+            <ion-col size="6" class="right"><b class="merah">{{toRp(x.total)}}</b>
+              <button class="btn btn_copy_total" (click)="copyMessage(x.total)" value="click to copy" >Copy</button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <!-- <ion-row>
+      <a target="_blank" class="btn" href="{{serv.base_url}}">E-Tiket</a>
+    </ion-row> -->
+    
+    <ion-row>
+      <ion-col size="12">
+        <!-- <div class="status_paid" *ngIf="x.status_bayar=='paid'">{{x.status}} ( {{x.status_bayar}} )</div> -->
+      </ion-col>
+    </ion-row>
+    
+    <!-- <ion-row>
+      <ion-col size="12">
+        <div class="status_paid">{{x.status}} ( {{x.status_bayar}} )</div>
+        <button *ngIf="konfirmasi==0"  class="btn" (click)="goToKonfirmasi(x)" >{{subtitle_konfirmasi}}</button>
+      </ion-col>
+    </ion-row> -->
+    <div class="konfirmasi">
+      <p *ngIf="use_poin=='1'">Anda berhasil menukarkan point</p>
+      <h5 *ngIf="status=='unpaid'">Konfirmasi Booking</h5>
+      <p *ngIf="status=='unpaid'">Upload Bukti Pembayaran</p>
+      <ion-row *ngIf="konfirmasi==0">
+        <!-- <ion-col size="12" *ngIf="status=='unpaid'">
+          <div class="padding">
+            <p *ngIf="isUploaded" class="isuploaded">Choose File</p>
+            <label for="upload-photo" class="label upload">{{subtitle_choose}}</label>
+            <input type="file" ng2FileSelect [uploader]="uploader" id="upload-photo"/>
+            <button class="btn btn-camera" (click)="camera1()" >Camera</button>
+            <div style="text-align:center">
+              <img *ngIf="isUploaded" src="https://homestay81.com/backend/storage/app/{{bukti}}"> 
+            </div>
+            <button *ngIf="konfirmasi==0"  class="btn" (click)="doKonfirmasi()" >{{subtitle_konfirmasi}}</button>
+          </div>
+        </ion-col> -->
+        <ion-col *ngIf="status=='unpaid'" size="6">
+          <button class="btn btn-camera" (click)="camera1()" >Camera</button>
+        </ion-col>
+        
+        <ion-col *ngIf="status=='unpaid'" size="6">
+          <!-- <p *ngIf="isUploaded" class="isuploaded">Choose File</p> -->
+          <label for="upload-photo" class="label upload">{{subtitle_choose}}</label>
+          <input #file type="file" ng2FileSelect [uploader]="uploader" id="upload-photo" accept='image/*' (change)="preview(file.files)"/>
+        </ion-col>
+        <ion-col>
+          <img [src]="imgURL" height="200" *ngIf="imgURL" style="width: 50%; margin-left: 100px;">
+        </ion-col>
+        <ion-col *ngIf="status=='unpaid'" size="12">
+          <button *ngIf="konfirmasi==0"  class="btn" (click)="doKonfirmasi()" >{{subtitle_konfirmasi}}</button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-row>
+      <ion-col size="12">
+        <div class="padding">
+          <button class="btn btn_kembali" (click)="myBackButton()" >{{subtitle_back}}</button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="konfirmasi==0 && use_poin=='0'">
+      <ion-col size="12">
+        <p class="center">{{subtitle_lakukan_pembayaran}}</p><br>
+        <h4 class="center">{{countdown}}</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="konfirmasi==0 && use_poin=='0'">
+      <ion-col size="6" *ngFor="let x of list_bank" >
+        <div class="bank">
+          <img class="center" src="{{base}}vector/upload/{{x.icon}}">
+          <div class="center">
+            {{x.no_rekening}}<br>{{x.atas_nama}}
+          </div>
+          <button class="btn" (click)="copyMessage(x.no_rekening)" value="click to copy" >Copy</button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+  

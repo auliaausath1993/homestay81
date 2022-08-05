@@ -1,0 +1,49 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="backToHome()" class="back-button"></ion-icon>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">
+        Filter
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-calendar [(ngModel)]="date"
+    (onChange)="onChange($event)"
+    [type]="type"
+    [format]="'YYYY-MM-DD'">
+  </ion-calendar>
+
+  <div class="padding">
+    <label>Harga (Rp)</label>
+    <!-- <input type="number" placeholder="Min." class="harga" [(ngModel)]="min">
+    <input type="number" placeholder="Max." class="harga" [(ngModel)]="max"> -->
+
+    <ion-select [(ngModel)]="min" class="minmax" interface="action-sheet">
+      <ion-select-option value="{{x}}" *ngFor="let x of list_range_harga">{{toRp(x)}}</ion-select-option>
+    </ion-select>
+    <ion-select [(ngModel)]="max" class="minmax" interface="action-sheet">
+      <ion-select-option value="{{x}}" *ngFor="let x of list_range_harga">{{toRp(x)}}</ion-select-option>
+    </ion-select>
+
+    <label>Daerah</label>
+    <ion-select class="myselect" [(ngModel)]="daerah" interface="action-sheet">
+      <ion-select-option *ngFor="let x of list_daerah" value="{{x.id}}">{{x.daerah}}</ion-select-option>
+    </ion-select>
+
+    <label>Fasilitas</label>
+    <div class="fasilitas" *ngFor="let x of list_fasilitas" (click)="pick(x)" [ngClass]="{'picked': searchFasilitas(x)}">{{x.fasilitas}}</div>
+
+    <button class="btn btn-filter" (click)="filter()" >Filter</button>
+  </div>
+
+</ion-content>

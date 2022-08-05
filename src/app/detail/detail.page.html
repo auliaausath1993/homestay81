@@ -1,0 +1,206 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+        <ion-back-button (click)="myBackButton()"></ion-back-button>
+    </ion-buttons> -->
+    <!-- <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="backToHome()" class="back-button"></ion-icon>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title_detail_kamar}}</ion-title>
+    <ion-buttons slot="end">
+        <ion-icon name="share" (click)="share()" class="ic_share"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-slides pager="true">
+    <ion-slide>
+      <img src="{{base}}vector/upload/{{foto}}" class="img_kamar" (click)="popup(foto)">
+    </ion-slide>
+    <ion-slide *ngFor="let x of list_foto" >
+      <!-- <img src="{{base}}vector/upload/{{x}}" class="img_kamar" > -->
+      <img  src="{{base}}vector/upload/{{x.foto}}" class="img_kamar" (click)="popup(x.foto)">
+    </ion-slide>
+    <!-- <ion-slide *ngIf="waitFinish" >
+        <iframe id="video-iframe" src="https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0"></iframe>
+    </ion-slide> -->
+    <ion-slide *ngIf="waitFinish" >
+        <iframe *ngIf="waitFinish" id="video-iframe" [src]="link_video" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" autoplay="true" scrolling="no"></iframe>
+    </ion-slide>
+    <!-- <ion-slide *ngIf="waitFinish" >
+      <video style="width: 100%;" controls="controls" playsinline>
+        <source src="{{base}}vector/upload/{{video}}" type="video/mp4" />
+      </video>
+    </ion-slide>
+    <ion-slide *ngIf="waitFinish" >
+      <video style="width: 100%;" controls="controls" playsinline>
+        <source src="https://admin.homestay81.com/api/get_video/{{video}}" type="video/mp4" />
+      </video>
+    </ion-slide>
+    <ion-slide *ngIf="waitFinish" >
+      <video style="width: 100%;" controls="controls" playsinline>
+        <source src="https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4" type="video/mp4" />
+      </video>
+    </ion-slide>
+    <ion-slide *ngIf="waitFinish" >
+      <video 
+      style="width: 100%;height: 300px;" 
+      src="https://admin.homestay81.com/api/get_video/{{video}}" 
+      playsinline controls 
+      id="my-player"
+      class="video-js"
+      controls
+      preload="auto"
+      data-setup='{}'></video>
+    </ion-slide>
+    <ion-slide *ngIf="waitFinish">
+      <div id="player"></div>
+    </ion-slide>
+    <ion-slide *ngIf="waitFinish">
+      <div id="player2"></div>
+    </ion-slide> -->
+  </ion-slides>
+  
+  
+  <div class="padding">
+    <ion-row>
+      <ion-col size="12">
+        <h4 class="detail_nama">{{nama}}</h4>
+        <div class="detail_harga">{{toRp(harga)}}/{{durasi}}</div>
+  
+        <h5>{{subtitle_fasilitas}}</h5>
+        <!-- <div class="div_fasilitas">
+          <div *ngFor="let x of fasilitas" class="fasilitas">
+            <img src="{{base}}vector/upload/{{x.fasilitas.icon}}" class="icon_fasilitas">
+            <p class="text_fasilitas">{{x.fasilitas.fasilitas}}</p>
+          </div>
+        </div> -->
+        <ion-row>
+          <ion-col size="6" *ngFor="let x of fasilitas">
+            <div class="fasilitas">
+              <img src="{{base}}vector/upload/{{x.fasilitas.icon}}" class="icon_fasilitas">
+              <p class="text_fasilitas">{{x.fasilitas.fasilitas}}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+  
+      </ion-col>
+    </ion-row>
+    <br>
+    <div class="garis"></div>
+    <br>
+    <ion-row>
+      <ion-col size="6" class="title_deskripsi">{{subtitle_ukuran}}</ion-col>
+      <ion-col size="6" class="value_deskripsi">{{ukuran_kamar}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" class="title_deskripsi">{{subtitle_listrik}}</ion-col>
+      <ion-col size="6" class="value_deskripsi">{{listrik}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" class="title_deskripsi">{{subtitle_kamar_mandi}}</ion-col>
+      <ion-col size="6" class="value_deskripsi">{{kamar_mandi}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" class="title_deskripsi">{{subtitle_parkir}}</ion-col>
+      <ion-col size="6" class="value_deskripsi">{{parkir}}</ion-col>
+    </ion-row>
+  
+    <div class="garis"></div>
+  
+    <ion-row>
+      <!-- <ion-col size="12" *ngIf="waitFinish" >
+        <h4>Video</h4>
+        <video style="width: 100%;" controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer" controlsList="nodownload">
+          <source src="{{base}}vector/upload/{{video}}" type="video/mp4" />
+        </video>
+      </ion-col> -->
+      <!-- <ion-col>
+        <a href="{{base}}vector/upload/{{video}}" target="_blank"><button class="btn">Download</button></a>
+      </ion-col> -->
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h4>{{subtitle_lokasi}}</h4>
+        <p>{{lokasi}}</p>
+      </ion-col>
+      <ion-col size="6">
+        <!-- <img src="assets/imgs/btn_detail_lokasi.png" (click)="navigasi()" > -->
+        <div class="button_lokasi" (click)="navigasi()">
+          {{button_arah}}
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <!-- <img src="assets/imgs/btn_detail_survey.png" (click)="survey()" > -->
+        <div class="button_survey" (click)="survey()">
+          {{button_survey}}
+        </div>
+      </ion-col>
+    </ion-row>
+  
+    <div class="garis"></div>
+  
+    <ion-row>
+      <ion-col size="12">
+        <h4>{{subtitle_deskripsi}}</h4>
+        <p>{{deskripsi}}</p>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col size="12">
+        <h4>{{subtitle_catatan}}</h4>
+        <p>{{catatan}}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openWa()">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <!-- <ion-col size="12">
+        <h4 class="center">{{subtitle_pilihdurasi}}</h4>
+      </ion-col> -->
+      <!-- <ion-col size="6">
+        <button class="btn_minus" (click)="kurang()" >-</button>
+        <input type="text" class="txt_qty" [(ngModel)]="qty">
+        <button class="btn_plus" (click)="tambah()" >+</button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-select class="myselect" [(ngModel)]="form_durasi" (ionChange)="onChange($event)" interface="action-sheet">
+          <ion-select-option value="0">Bulan</ion-select-option>
+          <ion-select-option *ngFor="let x of list_harga" value="{{x.durasi_id}}#{{x.durasi.durasi}}#{{x.harga}}">{{x.durasi.durasi}}</ion-select-option>
+        </ion-select>
+      </ion-col> -->
+      <!-- <ion-col size="12">
+        <div class="harga_total" *ngIf="diskon==0">{{toRp(total_harga)}}</div>
+        <div class="harga_total2" *ngIf="diskon>0">{{toRp(total_harga)}} (-{{diskon}}%) </div>
+        <div class="harga_total_diskon" *ngIf="diskon>0" >{{toRp(total_harga-(diskon/100*total_harga))}}</div>
+      </ion-col> -->
+      <!-- <ion-col size="12"><div class="label_durasi">Durasi</div></ion-col>
+      <ion-col size="12">
+        <div class="durasi" *ngFor="let x of list_harga" (click)="pickDurasi(x)" [ngClass]="{'picked': checkPicked(x)}">
+          {{x.durasi.durasi}}
+        </div>
+      </ion-col> -->
+      <ion-col size="12">
+        <button class="btn" (click)="goToBookingPage()" >Booking</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

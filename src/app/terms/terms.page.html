@@ -1,0 +1,24 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="backToHome()" class="back-button"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">
+        Terms & Condition
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="padding">
+    <div [innerHTML]="terms"></div>
+  </div>
+  <!-- <div class="div-lanjutkan"> 
+    <ion-checkbox></ion-checkbox>
+    <label>Saya menyetujui syarat dan ketentuan yang berlaku</label>
+
+    <button class="btn">Lanjutkan</button>
+  </div> -->
+</ion-content>

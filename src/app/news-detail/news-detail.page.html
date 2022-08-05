@@ -1,0 +1,21 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+        <ion-back-button (click)="myBackButton()"></ion-back-button>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="backToHome()" class="back-button"></ion-icon>
+    </ion-buttons>
+    <ion-title>Detail Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+
+<ion-content>
+  <div class="padding">
+    <img src="{{base}}vector/upload/{{foto}}">
+    <h4>{{title}}</h4>
+    <small>{{tgl}}</small>
+    <p>{{news}}</p>
+  </div>
+</ion-content>

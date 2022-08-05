@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{menu4}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="padding">
+    <!-- <ion-row>
+      <ion-col size="12">
+        <div class="center"><img src="assets/imgs/default_profile.png" class="img_profile"></div>
+      </ion-col>
+    </ion-row> -->
+
+    <div class="form_profile">
+      <ion-row>
+        <ion-col size="12">
+          <label>{{subtitle_nama}}</label>
+          <input type="text" class="txt_profile" [(ngModel)]="nama">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <label>{{subtitle_hp}}</label>
+          <input type="text" class="txt_profile" [(ngModel)]="no_hp">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <label>Email</label>
+          <input type="text" class="txt_profile" [(ngModel)]="email">
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col size="12">
+          <label>{{subtitle_tempat}}</label>
+          <input type="text" class="txt_profile" [(ngModel)]="tempat">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <label>{{subtitle_tgl}}</label>
+          <input type="text" class="txt_profile" [(ngModel)]="tanggal">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <label>{{subtitle_alamat}}</label>
+          <input type="text" class="txt_profile" [(ngModel)]="alamat">
+        </ion-col>
+      </ion-row> -->
+      <ion-row>
+        <ion-col size="12">
+          <label>{{subtitle_ktp}}</label>
+          <input type="text" class="txt_profile" [(ngModel)]="ktp">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <label>{{subtitle_bahasa}}</label>
+          <ion-item class="nopadding">
+            <ion-label>{{subtitle_bahasa}}</ion-label>
+            <ion-select placeholder="Select One" class="myselect" [(ngModel)]="bahasa">
+              <ion-select-option value="id">Indonesia</ion-select-option>
+              <ion-select-option value="en">English</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col size="12">
+          <label>Foto</label>
+          <ion-row>
+            <ion-col size="12">
+              <div class="div_img">
+                <img *ngIf="foto!=null"  src="{{base}}{{foto}}" class="foto_ktp">
+              </div>
+              <input type="file" [(ngModel)]="bukti1" ng2FileSelect [uploader]="uploader1" />
+              <button class="btn" (click)="camera1()" >Camera</button>
+              <label for="upload-photo" class="label white">{{subtitle_choose}}</label>
+              <input type="file" [(ngModel)]="bukti1" ng2FileSelect [uploader]="uploader1" id="upload-photo"/>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="6">
+          <label>Foto KK</label>
+          <ion-row>
+            <ion-col size="12">
+                <img src="assets/imgs/btn_upload.png" height="65px">
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row> -->
+      <br><br>
+      <ion-row>
+        <ion-col size="12">
+          <label>Foto KTP</label>
+          <ion-row>
+            <ion-col size="12">
+              <div class="div_img">
+                <img *ngIf="foto_ktp!=null"  src="{{base}}{{foto_ktp}}" class="foto_ktp">
+              </div>
+              <input type="file" [(ngModel)]="bukti2" ng2FileSelect [uploader]="uploader2" />
+              <button class="btn" (click)="camera2()" >Camera</button>
+              <!-- <label for="upload-photo" class="label white">{{subtitle_choose}}</label>
+              <input type="file" [(ngModel)]="bukti2" ng2FileSelect [uploader]="uploader2" id="upload-photo"/> -->
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col size="12">
+          <label>Password</label>
+          <input type="text" class="txt_profile" [(ngModel)]="password">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <label>Ulangi Password</label>
+          <input type="text" class="txt_profile" [(ngModel)]="password2">
+        </ion-col>
+      </ion-row> -->
+      <br><hr>
+      <!-- <ion-row>
+        <ion-col size="12">
+          <button class="btn" (click)="goToTerms()" >Terms & Condition</button>
+        </ion-col>
+      </ion-row> -->
+      <ion-row>
+        <ion-col size="12">
+          <button class="btn btn_submit" (click)="postData()" >{{button_simpan}}</button>
+          <button class="btn btn_back" (click)="goToTerms()" >Terms & Condition</button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

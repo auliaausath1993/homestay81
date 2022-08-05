@@ -1,0 +1,7 @@
+{
+  "appId": "com.novatama.homestay",
+  "appName": "Homestay",
+  "bundledWebRuntime": true,
+  "npmClient": "npm",
+  "webDir": "www"
+}

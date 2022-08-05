@@ -1,0 +1,105 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="myBackButton()" class="back-button"></ion-icon>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Booking Room</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="body">
+    <img class="head" src="../../assets/imgs/head-booking.png">
+
+    <div class="padding">
+      <div class="div-homestay">
+        <img src="{{base}}vector/upload/{{data.homestay[0].foto}}">
+        <div class="info-homestay">
+          {{data.homestay[0].nama}}
+        </div>
+      </div>
+
+      <label>Durasi Sewa</label>
+
+      <ion-col size="12">
+        <button class="btn_minus" (click)="kurang()" >-</button>
+        <input type="text" class="txt_qty" [(ngModel)]="count">
+        <button class="btn_plus" (click)="tambah()" >+</button>
+      </ion-col>
+
+      <ion-col size="12" style="float: left;">
+        <div class="durasi" *ngFor="let x of list_harga" (click)="pickDurasi(x)" [ngClass]="{'picked': checkPicked(x)}">
+          {{x.durasi.durasi}}
+        </div>
+      </ion-col>
+
+
+      <label>Jumlah Kamar</label>
+      <ion-col size="12">
+        <button class="btn_minus" (click)="kurang2()" >-</button>
+        <input type="text" class="txt_qty" [(ngModel)]="jumlah_kamar">
+        <button class="btn_plus" (click)="tambah2()" >+</button>
+      </ion-col>
+
+      <!-- <ion-col size="12">
+        <label>Jumlah Kamar</label>
+        <ion-input type="text" class="jumlah_kamar" [(ngModel)]="jumlah_kamar" (ionChange)="qtyChanged($event)"></ion-input>
+      </ion-col> -->
+
+      <label>Tanggal</label>
+      <div class="tanggal">
+        <div class="checkin">
+          <label class="checkin-label">Checkin</label>
+          <p class="tgl" (click)="popupCalendar()">{{today}}</p>
+          <!-- <label class="checkin-label" (click)="popupCalendar()" >{{today}}</label> -->
+          <!-- <ion-datetime id="dynamicDisabled" displayFormat="YYYY-MM-DD" class="tgl" [(ngModel)]="today" (ionChange)="onChangeDate($event)"></ion-datetime> -->
+        </div>
+        <div class="checkout">
+          <label class="checkin-label">Checkout</label>
+          <p class="tgl" (click)="popupCalendar2()">{{checkout}}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rincian">
+      <label>Rincian</label>
+      <div class="kiri">Total Durasi</div>
+      <div class="kanan">{{count}} {{nama_durasi}}</div>
+
+      <div class="kiri">Biaya / {{nama_durasi}}</div>
+      <div class="kanan">{{toRp(harga)}}</div>
+
+      <hr>
+      
+      <div class="kiri">Total</div>
+      <div class="kanan">{{toRp(harga*count*jumlah_kamar)}}</div>
+
+      <br>
+      <ion-col size="12" class="nopadding">
+        <ion-item class="mytoggle">
+          <ion-label class="label_poin">use Poin ({{poin}})</ion-label>
+          <ion-toggle [(ngModel)]="usePoin"></ion-toggle>
+        </ion-item>
+      </ion-col>
+
+      <!-- <ion-col size="12" class="nopadding">
+        <ion-item class="mytoggle">
+          <ion-label class="label_poin">i agree with all terms and conditions</ion-label>
+          <ion-checkbox [(ngModel)]="agree"></ion-checkbox>
+        </ion-item>
+      </ion-col> -->
+
+      <!-- <ion-col size="12" class="nopadding">
+        <label class="ijo" (click)="goToTerms()" >Read Terms & Condition</label>
+      </ion-col> -->
+
+      <ion-col size="12">
+        <button class="btn" (click)="bookingTerms()" >Booking</button>
+      </ion-col>
+      
+    </div>
+  </div>
+</ion-content>

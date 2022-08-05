@@ -1,0 +1,162 @@
+h4{
+    color: #00BB47;
+    font-weight: bold;
+}
+.detail_nama{
+    font-size: 16px;
+}
+.detail_harga{
+    color: #000;
+    font-size: 16px;
+}
+.img_kamar{
+    width: auto;
+    height: 315px !important;
+}
+.div_fasilitas{
+    width: 100%;
+    float: left;
+}
+.fasilitas{
+    background: #00BB47;
+    color: #fff;
+    padding: 8px 10px;
+    width: auto;
+    border-radius: 8px;
+    text-align: left;
+}
+.icon_fasilitas{
+    width: 25px;
+    height: 25px;
+    margin-bottom: -4px;
+}
+.text_fasilitas{
+    text-align: center;
+    margin: 0;
+    display: inline;
+    margin: 0px 0px 0px 4px;
+}
+.title_deskripsi{
+    font-weight: bold;
+    color: #00BB47;
+    text-align: left;
+}
+.value_deskripsi{
+    color: #000;
+    text-align: right;
+}
+.btn{
+    height: 50px;
+    background: #6EADE7;
+}
+.btn_minus{
+    width: 20%;
+    height: 35px;
+    background: #a5a5a5;
+    color: #000;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+}
+.btn_plus{
+    width: 20%;
+    height: 35px;
+    background: #00BB47;
+    color: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+}
+.txt_qty{
+    width: 60%;
+    height: 35px;
+    background: #dadada;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+}
+.button_lokasi{
+    background: #01AFEB;
+    color: #fff;
+    padding: 4px 10px;
+    text-align: center;
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.button_survey{
+    background: #fff;
+    color: #01AFEB;
+    border: 1px solid #01AFEB;
+    border-radius: 10px;
+    padding: 4px 10px;
+    text-align: center;
+    width: 100%;
+    height: 45px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.harga_total{
+    text-align: center;
+}
+.myselect{
+    height: 40px;
+    padding: 10px;
+    border: 0;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #dadada;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+}
+.btn_share{
+    width: 30%;
+    float: right;
+    padding: 10px 0px;
+}
+.back-button{
+    font-size: 24px;
+}
+.harga_total2{
+    text-align: center;
+    color: red;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+.harga_total_diskon{
+    text-align: center;
+    color: #00BB47;
+}
+.ic_share{
+    font-size: 24px;
+    margin-right: 10px;
+}
+#video-iframe{
+    height: 300px;
+    width: 90%;
+    display: block;
+    z-index: 100;
+}
+.durasi{
+    text-align: center;
+    width: 30%;
+    float: left;
+    margin: 5px 5px;
+    padding: 10px;
+    border: 1px solid #dadada;
+    border-radius: 8px;
+    color: #00BB47;
+    background: #fff;
+}
+.picked{
+    background: #00BB47;
+    color: #fff;
+}
+.label_durasi{
+    padding: 10px;
+}

@@ -1,0 +1,3 @@
+user: homestay81
+pass: homestay81@123
+sha1: 0B:E9:0C:D9:FD:5F:38:25:55:FD:09:4B:1F:F9:E5:A9:D7:7A:77:3F

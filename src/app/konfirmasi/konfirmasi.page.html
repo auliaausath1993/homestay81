@@ -1,0 +1,88 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button (click)="myBackButton()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title_konfirmasi}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col size="12">
+      <ion-card class="kamar-card">
+        <ion-card-content>
+          <ion-row>
+            <ion-col size="5">
+              <img src="{{base}}vector/upload/{{homestay.foto}}">
+            </ion-col>
+            <ion-col size="7">
+              <div class="nama_kamar">{{homestay.nama}}</div>
+              <div class="harga_kamar">{{toRp(homestay.harga)}}/Bln </div>
+              <div class="kategori_kamar">Booking Code : <b>{{kode_booking}}</b></div>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <h4 class="center merah">{{subtitle_detail_pembayaran}}</h4>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <div class="padding">
+        <ion-item>
+          <input type="text" placeholder="{{bank_pengirim}}" [(ngModel)]="dari_bank">
+        </ion-item>
+        <ion-item>
+          <input type="tel" placeholder="{{subtitle_no_rekening}}" [(ngModel)]="no_rekening">
+        </ion-item>
+        <ion-item>
+          <input type="text" placeholder="{{subtitle_pemilik}}" [(ngModel)]="atas_nama">
+        </ion-item>
+        <ion-item>
+          <ion-label>{{bank_tujuan}}</ion-label>
+          <ion-select placeholder="bank_tujuan" interface="action-sheet" [(ngModel)]="bank_tujuan" placeholder="{{bank_tujuan}}">
+            <ion-select-option value="{{x.bank}}" *ngFor="let x of list_bank" >{{x.bank}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <div class="padding">
+      <ion-col size="6">{{subtitle_nominal}}</ion-col>
+      <ion-col size="6" class="right merah"><b>{{toRp(total)}}</b></ion-col>
+    </div>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <div class="padding">
+          <p *ngIf="isUploaded" class="isuploaded">{{placeholder_file_diupload}}</p>
+          <label for="upload-photo" class="label upload">{{subtitle_choose}}</label>
+          <input type="file" [(ngModel)]="bukti" ng2FileSelect [uploader]="uploader" id="upload-photo"/>
+          <button class="btn" (click)="camera1()" >Camera</button>
+        <!-- <input type="file" [(ngModel)]="bukti" ng2FileSelect [uploader]="uploader" /> -->
+        <!-- <button class="btn" (click)="uploadAllImages()" >Lampirkan Bukti</button> -->
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <div class="padding">
+        <button class="btn" (click)="doKonfirmasi()" >{{title_konfirmasi}}</button>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <div class="padding">
+        <button class="btn btn_kembali" (click)="myBackButton()" >{{subtitle_back}}</button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="backToHome()" class="back-button"></ion-icon>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">
+        Topup
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="padding center">
+    <div class="small">*poin tidak bisa diuangkan kembali, poin hanya bisa ditukar dengan pembelian kamar jika poin mencukupi</div>
+    <h3>Pilih Paket</h3>
+
+    <div class="paket" (click)="pick(x.id)" [ngClass]="{'selected': cek(x.id)}" *ngFor="let x of list" >
+      <div class="poin">{{x.poin}} Poin</div>
+      <div class="harga">{{toRp(x.price)}}</div>
+      <div class="diskon" *ngIf="x.price_disc!='0'" >{{toRp(x.price_disc)}}</div>
+    </div>
+
+    <button class="btn btn-topup" (click)="topup()" [ngClass]="{'disabled': !isPicked}">Proses Topup</button>
+    
+  </div>
+</ion-content>

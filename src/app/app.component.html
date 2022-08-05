@@ -1,0 +1,31 @@
+<ion-app>
+  <!-- <ion-menu type="overlay">
+      <ion-content>
+        <ion-row>
+          <ion-col size="12">
+            <h4 class="center">{{nama}}</h4>
+          </ion-col>
+        </ion-row>
+
+        <div class="garis"></div>
+
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item *ngIf="p.action=='null'"  [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+            <ion-item *ngIf="p.action!='null'" (click)="logout()" >
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu> -->
+    <ion-router-outlet main></ion-router-outlet>
+</ion-app>

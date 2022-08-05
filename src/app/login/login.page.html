@@ -1,0 +1,78 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="div_bahasa">
+          <div class="pilihan" (click)="pilihBahasa()" ><img src="assets/imgs/{{bahasa}}.png">{{bahasa_name}}</div>
+          <div class="pilihan_lain" (click)="hidePilihan('id','Indonesia')" *ngIf="isClicked" ><img src="assets/imgs/id.png">Indonesia</div>
+          <div class="pilihan_lain" (click)="hidePilihan('en','English')" *ngIf="isClicked"><img src="assets/imgs/en.png">English</div>
+          <!-- <div class="pilihan_lain" (click)="hidePilihan('ch','Mandarin')" *ngIf="isClicked"><img src="assets/imgs/ch.png">Mandarin</div> -->
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="padding">
+        <div class="padding">
+          <ion-row>
+            <h4>HOMESTAY81</h4><br>
+          </ion-row>
+          <ion-row>
+            <small>{{login_subtitle}}</small>
+          </ion-row>
+        </div>
+        <br><br>
+
+        <ion-item *ngIf="!isRequestedOTP" >
+          <ion-icon name="person" class="icon_input"></ion-icon>
+          <input placeholder="{{placeholder_username}}" type="tel" class="myinput" [(ngModel)]="hp" min="11">
+        </ion-item>
+        <ion-item *ngIf="isRequestedOTP" >
+          <ion-icon name="lock" class="icon_input"></ion-icon>
+          <input placeholder="{{placeholder_otp}}" type="tel" class="myinput" [(ngModel)]="otp" max="5" min="5">
+        </ion-item>
+        <!-- <ion-item>
+          <ion-icon name="lock" class="icon_input"></ion-icon>
+          <input placeholder="{{placeholder_password}}" type="password" class="myinput">
+        </ion-item> -->
+
+        <ion-row *ngIf="!isRequestedOTP">
+          <div class="btn" (click)="requestOtp()">{{placeholder_login}}</div>
+        </ion-row>
+        <ion-row *ngIf="isRequestedOTP">
+          <div class="countdown">{{subtitle_time}} {{timer}}</div>
+        </ion-row>
+        <ion-row *ngIf="isRequestedOTP">
+          <div class="btn" (click)="login()">Login</div>
+        </ion-row>
+
+        <!-- <ion-row>
+          <h5 class="center" (click)="goToLupaPassword()" >{{placeholder_lupa}}</h5>
+        </ion-row> -->
+
+        <ion-row *ngIf="bahasa=='en'">
+          <ion-col size="12" (click)="signInWithGoogle()" >
+            <img class="login_google" src="assets/imgs/google-en.png">
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="bahasa=='id'">
+          <ion-col size="12" (click)="signInWithGoogle()" >
+            <img class="login_google" src="assets/imgs/google-id.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <small class="center">{{akun_subtitle}}</small><br>
+          <h4 class="center" (click)="register()" >{{button_register}}</h4>
+        </ion-row>
+
+        <ion-row>
+          <!-- <small class="center">Kembali</small><br> -->
+          <h6 class="center" (click)="back()" >Kembali</h6>
+        </ion-row>
+        
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

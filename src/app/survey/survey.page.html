@@ -1,0 +1,45 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-back-button (click)="myBackButton()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Survey</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="12">
+      <h4 class="center">{{subtitle_tentukan}}</h4>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-item>
+        <ion-label>{{subtitle_tanggal}}</ion-label>
+        <ion-datetime display-format="YYYY-MM-DD" [(ngModel)]="tanggal" max="{{max_tgl}}" min="{{today}}"></ion-datetime>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-item>
+        <!-- <ion-label>{{subtitle_jam}}</ion-label>
+        <ion-datetime display-format="HH:mm" [(ngModel)]="jam"></ion-datetime> -->
+        <ion-select interface="action-sheet" [(ngModel)]="jam">
+          <ion-select-option value="{{x.jam}}" *ngFor="let x of list_jam">{{x.jam}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+      <button class="btn" (click)="survey()" >{{button_atur}}</button>
+      <button class="btn btn_back" (click)="myBackButton()" >{{SUBTITLE_BACK}}</button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -1,0 +1,14 @@
+<ion-content>
+
+  <div class="padding">
+    <ion-calendar [(ngModel)]="date"
+      (onChange)="onChange($event)"
+      [type]="type"
+      [format]="'YYYY-MM-DD'">
+    </ion-calendar>
+
+    <button class="btn btn-filter" (click)="back()" >Choose</button>
+    <button class="btn btn-close" (click)="back()" >Close</button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom" color="primary">
+    <ion-tab-button (click)="home()" class="icon" tabindex="0" [ngClass]="{active: tabIndex==1}">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>{{menu1}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="survey()" *ngIf="isLogin" class="icon" tabindex="1" [ngClass]="{active: tabIndex==2}">
+      <ion-icon name="eye"></ion-icon>
+      <ion-label>{{menu2}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="booking()" *ngIf="isLogin" class="icon" tabindex="2" [ngClass]="{active: tabIndex==3}">
+      <ion-icon name="document"></ion-icon>
+      <ion-label>{{menu3}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="pengaturan()" *ngIf="isLogin" class="icon" tabindex="3" [ngClass]="{active: tabIndex==4}">
+      <ion-icon name="cog"></ion-icon>
+      <ion-label>{{menu4}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="logout()" *ngIf="isLogin" class="icon" tabindex="4">
+      <ion-icon name="exit"></ion-icon>
+      <ion-label>{{menu5}}</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button (click)="goToLogin()" *ngIf="!isLogin" class="icon" tabindex="5">
+      <ion-icon name="exit"></ion-icon>
+      <ion-label>Login</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+
+</ion-tabs>

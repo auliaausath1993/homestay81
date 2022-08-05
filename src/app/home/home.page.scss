@@ -1,0 +1,184 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+.list_daerah{
+  color: #00BB47 !important;
+  padding: 5px 20px;
+}
+ion-card-header{
+  padding: 0;
+}
+ion-card-header img{
+  width: 100%;
+}
+.slider_home{
+  
+}
+.slider_home img{
+
+}
+.link_right{
+  float: right;
+  text-align: right;
+  font-weight: bold;
+  color: #00BB47 !important;
+  font-size: 14px;
+}
+.img-kamar{
+  height: 150px;
+}
+.button_kategori{
+  background: #00BB47;
+  color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  float: left;
+  text-align: center;
+}
+.button_kategori img{
+  width: 100%;
+  float: left;
+}
+.button_kategori .content_kategori{
+  float: left;
+  width: 100%;
+}
+.button_kategori2{
+  background: #fff;
+  color: #00BB47;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  float: left;
+  text-align: center;
+}
+.button_kategori2 img{
+  width: 100%;
+  float: left;
+}
+.button_kategori2 .content_kategori{
+  float: left;
+  width: 100%;
+}
+.content_kategori h5{
+  font-weight: normal;
+  font-size: 14px;
+  margin: 0px 0px 0px 5px;
+}
+.content_kategori h2{
+  font-weight: bold;
+  font-size: 17px;
+  margin: 5px 0px 0px 5px;
+}
+
+.container {
+  width: 100px;
+  background-color: green;
+  overflow: hidden; 
+  white-space: nowrap;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll {
+    overflow: auto;
+  }
+}
+
+.div_bahasa{
+  //padding: 2px 8px 2px 2px;
+}
+.div_bahasa img{
+  width: 20px;
+  margin-right: 10px;
+}
+.pilihan{
+  padding: 8px 0px;
+  float: left;
+}
+.pilihan_lain{
+  border-top: 1px solid #dadada;
+  padding: 8px 0px;
+}
+.div_pilihan_lain{
+  position: fixed;
+  z-index: 10;
+  background: #fff;
+  width: 50%;
+  right: 0;
+  padding: 0px 10px;
+}
+.title{
+  font-size: 16px;
+  margin-top: -20px;
+}
+.label{
+}
+.vip{
+  background: #fdff57;
+  color: #000000;
+  padding: 5px;
+  border-radius: 5px;
+  width: 50px;
+  margin-left: 80px;
+  text-align: center;
+  position: absolute;
+}
+.poin{
+  float: left;
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid #dadada;
+  -webkit-box-shadow: 0px 6px 13px -4px rgba(117,117,117,1);
+  -moz-box-shadow: 0px 6px 13px -4px rgba(117,117,117,1);
+  box-shadow: 0px 6px 13px -4px rgba(117,117,117,1);
+}
+.poin-kiri{
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-weight: normal;
+}
+.poin-kiri h5,h4{
+  font-weight: normal;
+  font-size: 18px;
+}
+.poin-kiri h4{
+  color: #00BB47;
+  margin-top:0;
+}
+.poin-kanan{
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 20px 0px;
+}
+.btn-poin{
+  background: #00BB47;
+  color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  font-size: 16px;
+}
+.kamar-tersedia{
+  border-bottom: 2px solid #00BB47;
+  width: 100%;
+  margin-top: 10px;
+}
+.fab{
+  margin-bottom: 40px;
+}
+.funnel{
+  width: 20px;
+  height: 20px;
+}
+.ic_notif{
+  font-size: 20px;
+  margin: 10px;
+}
+.calendar{
+  text-align: right;
+}

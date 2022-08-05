@@ -1,0 +1,157 @@
+.body{
+    padding: 0;
+}
+.div-homestay{
+    float: left;
+    width: 100%;
+    border: 1px solid #dadada;
+}
+.div-homestay img{
+    float: left;
+    width: 20%;
+}
+.div-homestay .info-homestay{
+    float: left;
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0px;
+}
+label{
+    width: 100%;
+    margin: 10px 0px 5px 0px;
+    float: left;
+    font-size: 12px;
+}
+.head{
+    width: 100% !important;
+}
+.durasi{
+    text-align: center;
+    width: 46%;
+    float: left;
+    margin: 5px 5px;
+    padding: 10px;
+    border: 1px solid #dadada;
+    border-radius: 8px;
+    color: #00BB47;
+    background: #fff;
+}
+.picked{
+    background: #00BB47;
+    color: #fff;
+}
+.label_durasi{
+    padding: 10px;
+}
+.tanggal{
+    width: 100%;
+    float: left;
+    margin: 10px 0px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+}
+.checkin{
+    float: left;
+    width: 50%;
+    padding: 5px;
+    border-right: 1px solid #dadada;
+    padding: 10px;
+}
+.checkout{
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+.tgl{
+    color: #00BB47;
+    font-size: 16px;
+    margin: 0;
+    padding: 8px 0px;
+    margin-top: 15px;
+}
+.checkin-label{
+    margin: 0;
+}
+.rincian{
+    width: 100%;
+    background: #f7f7f7 !important;
+    float: left;
+    padding: 10px;
+}
+.kiri{
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 14px;
+    margin: 0px 0px 8px 0px;
+}
+.kanan{
+    float: left;
+    width: 50%;
+    text-align: right;
+    margin-bottom: 8px;
+    margin: 0px 0px 8px 0px;
+}
+.btn{
+    height: 50px;
+    background: #6EADE7;
+}
+.btn_minus{
+    width: 20%;
+    height: 35px;
+    background: #a5a5a5;
+    color: #000;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+}
+.btn_plus{
+    width: 20%;
+    height: 35px;
+    background: #00BB47;
+    color: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+}
+.jumlah_kamar{
+    width: 100%;
+    height: 35px;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid #dadada;
+}
+.txt_qty{
+    width: 60%;
+    height: 35px;
+    background: #dadada;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+}
+.div-toggle{
+    width: 100%;
+    float: left;
+}
+.mytoggle{
+    width: 100%;
+    max-width: 100%;
+}
+.nopadding{
+    padding: 0 !important;
+}
+.label_poin{
+    font-size: 10px;
+}
+.ijo{
+    color: #00BB47;
+    width: 100%;
+}
+.hydrated{
+    float: left !important;
+}

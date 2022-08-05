@@ -1,0 +1,47 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="myBackButton()" class="back-button"></ion-icon>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">
+        Topup
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="padding center">
+    <h3>Selesaikan Pembayaran</h3>
+    
+    <p>Mohon Selesaikan Topup dengan transfer sesuai dengan nominal.</p>
+    <h1 *ngIf="!price_disc">{{toRp(price)}}</h1>
+    <h1 *ngIf="price_disc">{{toRp(price_disc)}}</h1>
+    <span>Salin</span>
+
+
+    <label>Rekening Tujuan Transfer</label>
+    <div class="bank" *ngFor="let x of list" >
+      <img src="https://homestay81.com/backend/storage/vector/upload/{{x.icon}}">
+      <h5>{{x.bank}}</h5>
+      <label>{{x.atas_nama}}</label>
+      <label>{{x.no_rekening}}</label>
+
+      
+      <!-- <p>
+        <ion-textarea [(ngModel)]="CopyInputText"></ion-textarea>
+        <ion-button color="primary" (click)="copyString()">Copy</ion-button>
+      </p> -->
+    </div>
+    
+
+    <label for="upload-photo" class="label upload" style="width: 96%;">Upload Bukti Transfer</label>
+    <input type="file" [(ngModel)]="bukti" ng2FileSelect [uploader]="uploader" id="upload-photo"/>
+    <button class="btn" (click)="camera1()" style="background: #0a5885;">Camera</button>
+    <!-- <input type="file" [(ngModel)]="bukti" ng2FileSelect [uploader]="uploader" id="upload-photo"/> -->
+    <button class="btn btn-topup" (click)="topup()" >Konfirmasi Transfer</button>
+  </div>
+</ion-content>

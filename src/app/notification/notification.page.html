@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons slot="start">
+        <ion-icon name="arrow-back" (click)="backToHome()" class="back-button"></ion-icon>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">
+        Notification
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="padding">
+    <div class="notif" *ngFor="let x of data" >
+      <h4>{{x.title}}</h4>
+      <p>{{x.detail}}</p>
+      <ion-button *ngIf="x.title == 'Notifikasi Checkout'" (click)="goToBookingPage(x.booking_id, x.booking.homestay_id)" color="primary">
+        Perpanjang
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

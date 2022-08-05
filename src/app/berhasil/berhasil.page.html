@@ -1,0 +1,47 @@
+
+<ion-content>
+  <div class="padding">
+    <ion-row>
+      <ion-col class="12">
+        <img src="assets/imgs/img_berhasil.png" class="center">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="12">
+        <h4 class="center">Booking Code : {{kode_booking}}</h4>
+        <small class="center">{{subtitle_lakukan_pembayaran}}</small>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <h4 class="center">{{countdown}}</h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <small class="center">Total</small>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <h4 class="merah center">{{toRp(total)}}</h4>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <button class="btn" (click)="goToDetail()">{{btn_detail_pesanan}}</button>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="12">
+        <button class="btn btn_kembali" (click)="myBackButton()" >{{subtitle_back}}</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

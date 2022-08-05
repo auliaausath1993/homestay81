@@ -1,0 +1,299 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">
+        <div class="label">{{menu1}} </div> <div class="vip" *ngIf="isVIP" >VIP</div>
+      </div>
+    </ion-title>
+    <div slot="end">
+      <div class="div_bahasa pointer">
+        <div class="pilihan" (click)="pilihBahasa()" ><img src="assets/imgs/{{bahasa}}.png">{{bahasa_name}}</div>
+        <ion-icon name="notifications-outline" (click)="goToNotif()" class="ic_notif"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="div_bahasa">
+    <div class="div_pilihan_lain">
+      <div class="pilihan_lain pointer" (click)="hidePilihan('id','Indonesia')" *ngIf="isClicked" ><img src="assets/imgs/id.png">Indonesia</div>
+      <div class="pilihan_lain pointer" (click)="hidePilihan('en','English')" *ngIf="isClicked"><img src="assets/imgs/en.png">English</div>
+    </div>
+  </div>
+  <ion-slides class="slider_home" pager="true" *ngIf="banners.length>0">
+    <ion-slide *ngFor="let item of banners">
+      <img class="pointer" [src]="base+'vector/upload/'+item.banner" (click)="detailNews(item)" >
+    </ion-slide>
+  </ion-slides>
+  <div class="padding">
+
+
+    <!-- <ion-row *ngIf="latest_homestay.length>0">
+      <ion-col>
+        <h4 class="center">{{terdekat_subtitle}}</h4>
+      </ion-col>
+    </ion-row> -->
+
+    <!-- SKELETON LOADING -->
+    <div id="skeleton" *ngIf="banners.length==0">
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 50%" class="center"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="kamar-card">
+            <ion-card-header>
+              <ion-thumbnail style="width: 100%">
+                <ion-skeleton-text style="width: 100%" animated></ion-skeleton-text>
+              </ion-thumbnail>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="kamar-card">
+            <ion-card-header>
+              <ion-thumbnail style="width: 100%">
+                <ion-skeleton-text style="width: 100%" animated></ion-skeleton-text>
+              </ion-thumbnail>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6" class="padding">
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        </ion-col>
+        <ion-col size="6" class="padding">
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="kamar-card">
+            <ion-card-header>
+              <ion-thumbnail style="width: 100%">
+                <ion-skeleton-text style="width: 100%" animated></ion-skeleton-text>
+              </ion-thumbnail>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="kamar-card">
+            <ion-card-header>
+              <ion-thumbnail style="width: 100%">
+                <ion-skeleton-text style="width: 100%" animated></ion-skeleton-text>
+              </ion-thumbnail>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 50%" class="center"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card class="kamar-card">
+            <ion-card-header>
+              <ion-thumbnail style="width: 100%">
+                <ion-skeleton-text style="width: 100%" animated></ion-skeleton-text>
+              </ion-thumbnail>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card class="kamar-card">
+            <ion-card-header>
+              <ion-thumbnail style="width: 100%">
+                <ion-skeleton-text style="width: 100%" animated></ion-skeleton-text>
+              </ion-thumbnail>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+    <!-- END SKELETON LOADING -->
+
+    <ion-row *ngIf="banners.length>0">
+
+      <ion-slides class="slider_home" pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let item of new_nearest_homestay" >
+          <ion-col size="6" *ngFor="let x of item" >
+            <ion-card class="kamar-card" (click)="goToDetail(x)" >
+              <ion-card-header>
+                <img class="img-kamar" src="{{base}}vector/upload/{{x.foto}}">
+              </ion-card-header>
+              <ion-card-content>
+                <div class="nama_kamar">{{x.nama}}</div>
+                <!-- <div class="kategori_kamar">{{getSubtitleJenis(x.jenis)}}</div> -->
+                <div class="harga_kamar">{{toRp(x.harga)}}/{{subtitle_bulan}} </div>
+                <div class="jarak"><ion-icon name="pin"></ion-icon> {{round(x.distance)}} Km</div>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-slide>
+      </ion-slides>
+
+      <div class="poin" *ngIf="pelanggan_id">
+        <div class="poin-kiri" *ngIf="isVIP">
+          <h5>Poin</h5>
+          <h4>{{poin}}</h4>
+        </div>
+        <div class="poin-kanan" *ngIf="isVIP">
+          <button class="btn-poin" (click)="goToTopup()" >Topup</button>
+        </div>
+      </div>
+
+      <div class="kamar-tersedia">
+        <ion-item>
+          <ion-label>Lihat Kamar Pada</ion-label>
+          <ion-label (click)="popupCalendar()" class="calendar">{{today}}</ion-label>
+          <!-- <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="today" (ionChange)="onChangeDate($event)"></ion-datetime> -->
+        </ion-item>
+      </div>
+
+      <!-- <ion-col size="6" *ngFor="let x of nearest_homestay" >
+        <ion-card class="kamar-card" (click)="goToDetail(x)" >
+          <ion-card-header>
+            <img class="img-kamar" src="{{base}}vector/upload/{{x.foto}}">
+          </ion-card-header>
+          <ion-card-content>
+            <div class="nama_kamar">{{x.nama}}</div>
+            <div class="kategori_kamar">{{x.jenis}}</div>
+            <div class="harga_kamar">{{toRp(x.harga)}}/Bln </div>
+            <div class="jarak"><ion-icon name="pin"></ion-icon> {{round(x.distance)}} Km</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col> -->
+    </ion-row>
+
+    <div class="garis"></div>
+
+    <ion-row *ngIf="banners.length>0">
+      <ion-col>
+        <h4 class="center">{{terdekat_subtitle}}</h4>
+        <small class="center">{{gps_subtitle}}</small>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="banners.length>0">
+      <ion-col size="6" class="list_daerah pointer" *ngFor="let x of daerah" (click)="goToKota(x.id)" >
+          <ion-icon name="pin"></ion-icon> {{x.daerah}}
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row *ngIf="latest_homestay.length>0">
+      <ion-col size="12">
+        <h4 class="center">{{filter_subtitle}}</h4>
+      </ion-col>
+      <ion-col size="4">
+        <div class="button_kategori" (click)="goToJenis('putri')">
+          <img src="assets/imgs/ic_cewek.png">
+          <div class="content_kategori">
+            <h5>{{subtitle_kamar}}</h5>
+            <h2>{{subtitle_jenis2}}</h2>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="button_kategori" (click)="goToJenis('putra')">
+          <img src="assets/imgs/ic_cowok.png">
+          <div class="content_kategori">
+            <h5>{{subtitle_kamar}}</h5>
+            <h2>{{subtitle_jenis1}}</h2>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="button_kategori2" (click)="goToJenis('umum')">
+          <img src="assets/imgs/ic_umum.png">
+          <div class="content_kategori">
+            <h5>{{subtitle_kamar}}</h5>
+            <h2>{{subtitle_jenis3}}</h2>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row> -->
+
+    <ion-row *ngIf="banners.length>0">
+      <ion-col size="12">
+        <h4 class="center">{{daftar_subtitle}}</h4>
+      </ion-col>
+      <ion-col size="6" *ngFor="let x of latest_homestay">
+        <ion-card class="kamar-card pointer" (click)="goToDetail(x)" >
+          <ion-card-header>
+            <!-- <div class="label" *ngIf="x.stok>0">Available</div>
+            <div class="label full" *ngIf="x.stok==0">Fullbooked</div> -->
+            <img class="img-kamar pointer" src="{{base}}vector/upload/{{x.foto}}">
+          </ion-card-header>
+          <ion-card-content>
+            <div class="nama_kamar">{{x.nama}}</div>
+            <!-- <div class="kategori_kamar">{{getSubtitleJenis(x.jenis)}}</div> -->
+            <!-- <div class="harga_kamar" *ngIf="pelanggan.diskon">
+              {{toRp(x.harga - (x.harga * (pelanggan.diskon / 100)))}}/{{subtitle_bulan}}
+            </div>
+            <div class="harga_kamar" *ngIf="!pelanggan.diskon">
+              {{toRp(x.harga)}}/{{subtitle_bulan}}
+            </div> -->
+            <div class="harga_kamar">
+              {{toRp(x.harga)}}/{{subtitle_hari}}
+            </div>
+            <div class="jarak">{{x.sisa > 0 ? 'Tersedia : ' + x.sisa : 'Out Of Stock'}} </div>
+            <div class="jarak"><ion-icon name="pin"></ion-icon> {{x.daerah.daerah}} </div>
+            <!-- <div class="jarak"><ion-icon name="pin"></ion-icon> 1Km</div> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+    <div *ngIf="latest_homestay.length==0" class="no-data">
+      <img src="../../assets/imgs/no-data.png">
+      <label>No Data</label>
+    </div>
+
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed" class="fab" (click)="goToFilter()" >
+    <ion-fab-button>
+      <img src="../../assets/imgs/funnel.png" class="funnel">
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

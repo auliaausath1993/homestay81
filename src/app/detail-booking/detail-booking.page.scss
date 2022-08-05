@@ -1,0 +1,133 @@
+.status{
+    width: 100%;
+    float: left;
+    text-align: center;
+    background: #ffbcbc;
+    color: #00BB47;
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+.status_paid{
+    width: 100%;
+    float: left;
+    text-align: center;
+    background: rgb(203, 255, 223);
+    color: #00BB47;
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+.right{
+    text-align: right;
+}
+.bank{
+    padding: 12px;
+}
+.btn_kembali{
+    background: #fff;
+    color: #00BB47;
+}
+.btn_copy_total{
+    height: 40px;
+    /* background: #00BB47; */
+    background: none;
+    color: #00BB47;
+    /* margin: 10px 0px; */
+    font-size: 16px;
+    text-align: right;
+    border-radius: 10px;
+}
+.back-button{
+    font-size: 24px;
+}
+img{
+    max-height: 100px;
+    width: auto;
+}
+input{
+    border: 0;
+    height: 40px;
+    width: 50%;
+}
+.btn_kembali{
+    background: #fff;
+    color: #00BB47;
+}
+.label {
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #00BB47;
+    color: #00BB47;
+    font-weight: normal;
+    padding: 10px;
+    border-radius: 10px;
+    float: left;
+    text-align: center;
+ }
+ .upload{
+     background: #ffffff;
+    //  color: #fff;
+     border: none;
+     width: 50%;
+     color: #2396da;
+     border: 1px solid #2396da;
+ }
+ .div_img{
+     text-align: center;
+ }
+ #upload-photo {
+    opacity: 0;
+    // position: absolute;
+    // z-index: -1;
+ }
+ .isuploaded{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #4a4a4a;
+ }
+ img{
+    max-height: 100px;
+    width: auto;
+}
+.checkin{
+    font-size: 13px;
+    color: #666666;
+    margin: 0;
+    padding: 0px 15px;
+}
+.konfirmasi{
+    border: 1px solid #dadada;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    -webkit-box-shadow: 9px 7px 38px -16px rgba(0,0,0,0.62);
+    -moz-box-shadow: 9px 7px 38px -16px rgba(0,0,0,0.62);
+    box-shadow: 9px 7px 38px -16px rgba(0,0,0,0.62);
+}
+.konfirmasi h5{
+    padding: 0px 20px;
+}
+.konfirmasi p{
+    padding: 0px 20px;
+}
+.btn-camera{
+    width: 100%;
+    margin: 0px 2px;
+    color: #2396da;
+    border: 1px solid #2396da;
+    background: #fff;
+}
+.btn-browse{
+    width: 100%;
+    margin: 0px 2px;
+    color: #2396da;
+    border: 1px solid #2396da;
+}
+.upload{
+    font-size: 13px;
+    width: 95%;
+}
